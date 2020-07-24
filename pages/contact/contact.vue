@@ -1,0 +1,63 @@
+<template>
+	<view class="contact">
+		<image class="img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1591961477487&di=70da5847c3d56e0b12f7681962d2e218&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D2924607196%2C2839452594%26fm%3D214%26gp%3D0.jpg" mode=""></image>
+	<view class="info">
+		<view class="" @click="phoneCall">
+			联系电话: 400-618-0000 (点击拨打)
+		</view>
+		<view class="">
+			联系地址:广东省深圳市宝安区西部硅谷b座c区
+		</view>
+	</view>
+	<map class="map" :longitude="longitude" :scale="scale" :latitude="latitude" :markers="markers"></map>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				longitude:113.843892,
+				latitude:22.631942,
+				scale:11,
+				markers:[
+					{
+						longitude:113.843892,
+						latitude:22.631942,
+						iconPath:"../../static/youxiao.png",
+						width:30,
+						height:30
+					}
+				]
+			}
+		},
+		methods: {
+			phoneCall(){
+				uni.makePhoneCall({
+					phoneNumber:'400-618-0000'
+				})
+			}
+		}
+	}
+</script>
+
+<style lang="scss">
+.contact{
+	.img{
+		width: 100%;
+		height: 360rpx;
+	}
+	.info{
+		padding: 10rpx 20rpx;
+		font-size: 30rpx;
+		view{
+			line-height: 80rpx;
+			border-bottom: 1rpx solid #eee;
+		}
+	}
+	.map{
+		width: 750rpx;
+		height: 750rpx;
+	}
+}
+</style>
